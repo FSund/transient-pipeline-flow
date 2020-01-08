@@ -1,0 +1,25 @@
+var classGERG04 =
+[
+    [ "GERG04", "classGERG04.html#a3d9994ae4df2b006d2e026060b520e13", null ],
+    [ "calculateCoefficients", "classGERG04.html#a83554cf5a78b5aeb7f0f2e0d2239d248", null ],
+    [ "calculateCompressibility", "classGERG04.html#ab04534d4fb9a978fd7ffefe51e0a4148", null ],
+    [ "evaluate", "classGERG04.html#af340de6fa9ecb68b77db7f59f1e3b5af", null ],
+    [ "evaluateAllProperties", "classGERG04.html#a6fcced4e8e34593e9ab3692631732812", null ],
+    [ "evaluateAlpha_roi_deltas", "classGERG04.html#a80008ba896ace951c7ea06866201dea4", null ],
+    [ "findDensity", "classGERG04.html#a0c5c6dc7719577843473107be722c142", null ],
+    [ "findDensity", "classGERG04.html#a07b79bbca8654c184f52d44a1974fcad", null ],
+    [ "findSpeedOfSound", "classGERG04.html#ae7212d5f63e663d3d3d2d5029bcf9dd8", null ],
+    [ "indicesOfNonZeroComponents", "classGERG04.html#a7913bdb820281f6ca4ee55b678b3d916", null ],
+    [ "setComposition", "classGERG04.html#a21cf561925c9e31470e701dcc2873144", null ],
+    [ "setNonZeroComponents", "classGERG04.html#a5394bb1151df32250c5c4682766c4adf", null ],
+    [ "m_firstIndices", "classGERG04.html#abeb63db500082b3e260d53917a2a29f6", null ],
+    [ "m_indices", "classGERG04.html#ac06e7aa6bbbf2ce0d3e8959dd381eb74", null ],
+    [ "m_lastIndices", "classGERG04.html#a8db77215c848ab9a3cadbab6900da9ca", null ],
+    [ "N", "classGERG04.html#ad602e92af989a6b447329fb7f991a01c", null ],
+    [ "Ra", "classGERG04.html#a34ded16bd21030dd578a6cac89801749", null ],
+    [ "rhoc", "classGERG04.html#a3521cb1116cffc593efcdca24401ee50", null ],
+    [ "rhored", "classGERG04.html#a5e95440e8da9aab1b09cf1e48dd0cb49", null ],
+    [ "Tc", "classGERG04.html#abb18916209933014de2b00f5eb769e46", null ],
+    [ "tred", "classGERG04.html#a9b94abe52b8c5235d8e0935fa28cc997", null ],
+    [ "X", "classGERG04.html#af00750c7d03674c13e2f2894ec016cc1", null ]
+];
