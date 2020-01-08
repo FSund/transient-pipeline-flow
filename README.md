@@ -2,7 +2,7 @@
 
 A transient pipeline flow simulation library.
 
-See the documentation in `docs/` for documentation, or read the html docs.
+View the [html documentation online](https://fsund.github.io/transient-pipeline-flow/) or check `docs/` for documentation.
 
 # Windows/MSYS2 installation
  * Install [MSYS2](https://www.msys2.org/) (only supported by Vista and more recent Windows versions)
