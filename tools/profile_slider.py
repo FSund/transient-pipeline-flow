@@ -25,6 +25,7 @@ class ProfileSlider:
         load_x_from_file=False,
         n_max=0,
         timescale="s",
+        rows=None,
     ):
         # support for single file (files and labels as strings instead of
         # iterable/list)
@@ -46,23 +47,24 @@ class ProfileSlider:
                     path + file
                 ), "All files should have same length"
 
-        data = []
-        if nlines > 10000:
-            # only load a limited number of lines
-            divisor = int(round(nlines / 1000.0))
-            skiprows = set(range(0, nlines)) - set(range(0, nlines, divisor))
-            print(
-                "Only loading every %d lines (%d of %d lines)"
-                % (divisor, nlines - len(skiprows), nlines)
-            )
-            for filename in files:
-                with open(path + filename, "rt") as f_in:
-                    #data.append(read_csv(itertools.islice(f_in, 0, None, divisor)))
-                    #data.append(read_csv(f_in, skiprows=lambda x: x % divisor != 0))
-                    data.append(read_csv(f_in, skiprows=skiprows))
+        if rows is not None:
+            # load all rows if parameter "rows" is set
+            skiprows = set(range(0, nlines)) - set(rows)  # all lines except the ones in "rows"
         else:
-            for filename in files:
-                data.append(read_csv(path + filename))
+            if nlines > 10000:
+                # only load a limited number of lines
+                divisor = int(round(nlines / 10000.0))
+                skiprows = set(range(0, nlines)) - set(range(0, nlines, divisor))
+                print(
+                    "Only loading every %d lines (%d of %d lines)"
+                    % (divisor, nlines - len(skiprows), nlines)
+                )
+            else:
+                skiprows = None
+
+        data = []
+        for filename in files:
+            data.append(read_csv(path + filename, skiprows=skiprows))
 
         # discard some data
         if n_max:
