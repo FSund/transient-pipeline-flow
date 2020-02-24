@@ -5,7 +5,7 @@ A transient pipeline flow simulation library.
 View the [html documentation online](https://fsund.github.io/transient-pipeline-flow/) or check `docs/` for documentation.
 
 # Windows/MSYS2 installation
- * Install [MSYS2](https://www.msys2.org/) (only supported by Vista and more recent Windows versions)
+ * Install [MSYS2](https://www.msys2.org/)
 
 ## Installing required packages
  * Open MSYS2 MSYS terminal
@@ -47,16 +47,15 @@ cmake -G'MSYS Makefiles' -Denable_blaslib=OFF -DCMAKE_INSTALL_PREFIX="C:/msys64/
 make install
 ```
 
-## Compiling TransFlow
+## Compiling
  * Open MSYS2 MinGW 64-bit terminal
- * Set up git for BitBucket if you haven't done so already: https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html
- * Navigave to where you want to keep transflow
+ * Navigate to where you want to download the files
  * Get the most recent version from git
 
 ```
 pacman -S unzip
-git clone git@bitbucket.org:polytecresearch/transflow.git
-cd transflow
+git clone https://github.com/FSund/transient-pipeline-flow
+cd transient-pipeline-flow
 mkdir build
 cd build
 ```
