@@ -102,10 +102,10 @@ TEST_CASE("Constructors")
 
     SUBCASE("from matrix and compositions")
     {
-        CHECK_THROWS(BoundaryConditions bc(arma::zeros<mat>(3, 1))); // too few columns
-        CHECK_THROWS(BoundaryConditions bc(arma::zeros<mat>(3, 3))); // too many columns
-        CHECK_THROWS(BoundaryConditions bc(arma::zeros<mat>(2, 2))); // too few rows
-        CHECK_THROWS(BoundaryConditions bc(arma::zeros<mat>(4, 2))); // too many rows
+        CHECK_THROWS(BoundaryConditions(arma::zeros<mat>(3, 1))); // too few columns
+        CHECK_THROWS(BoundaryConditions(arma::zeros<mat>(3, 3))); // too many columns
+        CHECK_THROWS(BoundaryConditions(arma::zeros<mat>(2, 2))); // too few rows
+        CHECK_THROWS(BoundaryConditions(arma::zeros<mat>(4, 2))); // too many rows
 
         CHECK_NOTHROW(BoundaryConditions bc(arma::zeros<mat>(3, 2)));
 
