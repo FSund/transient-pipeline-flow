@@ -1,0 +1,44 @@
+{
+    "name": "C++ DevContainer with Armadillo and Dependencies",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools"
+            ]
+        }
+    },
+
+    "remoteUser": "root",
+    "containerUser": "root"
+
+    // "runArgs": [
+    //     "--userns=host"
+    // ]
+
+    // "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,uid=1000,gid=1000",
+    // "remoteUser": "vscode",
+    // "containerUser": "vscode",
+    // "updateRemoteUserUID": true,
+    // "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces,type=volume",
+    // "workspaceFolder": "/workspaces"
+    
+    // this messes up ownership of local files
+    // "remoteUser": "vscode",
+    // "containerUser": "vscode",
+    // "updateRemoteUserUID": true,
+    // "postStartCommand": "sudo chown -R vscode:vscode /workspaces"
+    
+    // "remoteEnv": {
+    //     "DOCKER_HOST": "unix:///run/user/1000/docker.sock"
+    // },
+    // "runArgs": [
+    //     "--userns=keep-id:uid=1000,gid=1000"
+    // ],
+    // "containerUser": "vscode",
+    // "updateRemoteUserUID": true
+}
