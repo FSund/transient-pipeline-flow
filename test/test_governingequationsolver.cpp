@@ -46,9 +46,9 @@ TEST_CASE("Uniform flow test")
     solvers.push_back(std::make_unique<GoverningEquationSolver<EnthalpyDiscretizer>>(nGridPoints));
     solvers.push_back(std::make_unique<GoverningEquationSolver<InternalEnergyDiscretizer>>(nGridPoints));
 
-    for (const string& m : {"inlet", "outlet", "none", "both"})
+    for (const string m : {"inlet", "outlet", "none", "both"})
     {
-        for (const string& p : {"inlet", "outlet", "both", "none"})
+        for (const string p : {"inlet", "outlet", "both", "none"})
         {
             if (m == "none" && p != "both") continue;
             if (p == "none" && m != "both") continue;
@@ -119,9 +119,9 @@ TEST_CASE("Uniform flow test 2")
     solvers.push_back(std::make_unique<GoverningEquationSolver<EnthalpyDiscretizer>>(nGridPoints));
     solvers.push_back(std::make_unique<GoverningEquationSolver<InternalEnergyDiscretizer>>(nGridPoints));
 
-    for (const string& m : {"inlet", "outlet", "none", "both"})
+    for (const string m : {"inlet", "outlet", "none", "both"})
     {
-        for (const string& p : {"inlet", "outlet", "both", "none"})
+        for (const string p : {"inlet", "outlet", "both", "none"})
         {
             if (m == "none" && p != "both") continue;
             if (p == "none" && m != "both") continue;
