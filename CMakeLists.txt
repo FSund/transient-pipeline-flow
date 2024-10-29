@@ -84,27 +84,19 @@ set(LIBRARY_SOURCES
     src/sampler.cpp
 )
 
-# manually add header files to project, for them to show up in QtCreator without
-# having to restart each time a new header/source is added
-# https://stackoverflow.com/a/33630604
-# TODO: This is only done since QtCreator is a bit slow to update headers, so
-# can probably remove this when the project is closer to finished
-FILE(GLOB_RECURSE LibFiles "src/*.hpp")
-add_custom_target(headers SOURCES ${LibFiles})
-
 add_library(${PROJECT_NAME} ${LIBRARY_SOURCES})
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/src ${CMAKE_BINARY_DIR}/src)
 
 find_package(Armadillo REQUIRED)
-target_include_directories(${PROJECT_NAME} PRIVATE ${ARMADILLO_INCLUDE_DIRS})
+target_include_directories(${PROJECT_NAME} PUBLIC ${ARMADILLO_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} ${ARMADILLO_LIBRARIES})
 message("ARMADILLO_VERSION_MAJOR: " ${ARMADILLO_VERSION_MAJOR})
 
 find_package(HDF5 REQUIRED)
-#target_include_directories(${PROJECT_NAME} PRIVATE ${HDF5_INCLUDE_DIRS})  # not used
+target_include_directories(${PROJECT_NAME} PUBLIC ${HDF5_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} ${HDF5_LIBRARIES})
 message("HDF5_LIBRARIES: ${HDF5_LIBRARIES}")
-message("HDF5_INCLUDE_DIRS (not used): ${HDF5_INCLUDE_DIRS}")
+message("HDF5_INCLUDE_DIRS: ${HDF5_INCLUDE_DIRS}")
 
 # had to adjust armadillo_bits/config.hpp, and comment out the line
 #     #define ARMA_SUPERLU_INCLUDE_DIR /
