@@ -4,10 +4,16 @@ A transient pipeline flow simulation library.
 
 View the [html documentation online](https://fsund.github.io/transient-pipeline-flow/) or check `docs/` for documentation.
 
-# Windows/MSYS2 installation
+## DevContainer
+
+A devcontainer is included that should work in most environments.
+
+Use `CMake: Configure` and `CMake: Build` from the command palette to configure and build the project. Use `CMake: Set Launch/Debug target` to choose one of the examples, and launch it from the CMake side bar menu.
+
+## Windows/MSYS2 installation
  * Install [MSYS2](https://www.msys2.org/)
 
-## Installing required packages
+### Install dependencies
  * Open MSYS2 MSYS terminal
 
 ```
@@ -31,7 +37,7 @@ pacman -S mingw-w64-x86_64-armadillo mingw-w64-x86_64-hdf5 mingw-w64-x86_64-open
 pacman -S mingw-w64-x86_64-qt-creator
 ```
 
-### SuperLU (required by Armadillo, for sparse matrix support)
+#### SuperLU (required by Armadillo, for sparse matrix support)
  * Open `MSYS2 MinGW 64-bit` terminal
  * Navigate to somewhere we can download and compile SuperLU
  * Download, compile and install SuperLU
@@ -47,7 +53,7 @@ cmake -G'MSYS Makefiles' -Denable_blaslib=OFF -DCMAKE_INSTALL_PREFIX="C:/msys64/
 make install
 ```
 
-## Compiling
+### Compile and run
  * Open MSYS2 MinGW 64-bit terminal
  * Navigate to where you want to download the files
  * Get the most recent version from git
