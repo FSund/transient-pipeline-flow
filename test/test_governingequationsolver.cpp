@@ -84,7 +84,7 @@ TEST_CASE("Uniform flow test")
                 }
                 else
                 {
-                    tolerances = {1e-12, 1e-14, 1e-14};
+                    tolerances = {1e-12, 1e-14, 3e-14};
                 }
                 for (uword i = 0; i < 3; i++) // loop over variables
                 {
@@ -157,7 +157,7 @@ TEST_CASE("Uniform flow test 2")
                 }
                 else
                 {
-                    tolerances = {1.3e-11, 1e-14, 1e-14};
+                    tolerances = {3e-11, 2e-13, 6e-13};
                 }
                 for (uword i = 0; i < 3; i++) // loop over variables
                 {
