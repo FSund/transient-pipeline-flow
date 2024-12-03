@@ -58,7 +58,7 @@ std::optional<Sampler> Simulator::makeSampler(const Config& config)
 
 arma::vec Simulator::simulate(const TimeSeries& ts)
 {
-    const std::vector<TimeStep>& timeSeries = ts; // user-defined cast
+    const std::vector<BoundaryConditionsStamped> &timeSeries = ts; // user-defined cast
     arma::vec nIterations(ts.size());
 
     if (m_sampler && m_state->timestamp() == 0)
@@ -69,7 +69,7 @@ arma::vec Simulator::simulate(const TimeSeries& ts)
     arma::uword dt = 0;
     for (std::size_t i = 0; i < timeSeries.size(); i++)
     {
-        const TimeStep& bc = timeSeries.at(i);
+        const BoundaryConditionsStamped &bc = timeSeries.at(i);
 
         // timestamps of m_state and boundary conditions should now be synced
         if (bc.timestamp() < m_state->timestamp())

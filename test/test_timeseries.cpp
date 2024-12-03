@@ -165,12 +165,12 @@ TEST_CASE("TimeSeries constructors")
     }
 }
 
-TEST_CASE("user-defined conversion to vector<TimeStep>")
+TEST_CASE("user-defined conversion to vector<BoundaryConditionsStamped>")
 {
     TimeSeries ts(10);
     const arma::vec flow = arma::linspace<vec>(0, 9, 10);
     ts.inletFlow() = flow;
-    std::vector<TimeStep> steps(ts);
+    std::vector<BoundaryConditionsStamped> steps(ts);
     for (std::size_t i = 0; i < 10; i++)
     {
         CHECK(steps.at(i).inletFlow() == flow(i));

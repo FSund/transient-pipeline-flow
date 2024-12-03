@@ -9,7 +9,7 @@
 
 class Pipeline;
 class BoundaryConditions;
-class TimeStep;
+class BoundaryConditionsStamped;
 
 /*!
  * \brief The TimeSeries class is used to store the boundary conditions for
@@ -214,12 +214,12 @@ public:
     auto& outletPressure()    { return m_outletPressure; } //!< Get (ref) outlet pressure.
     auto& outletTemperature() { return m_outletTemperature; } //!< Get (ref) outlet temperature.
 
-    //! User-defined conversion to vector of TimeStep. Convenient when we want
+    //! User-defined conversion to vector of BoundaryConditionsStamped. Convenient when we want
     //! to loop over all time steps, e.g. in Simulator::simulate().
-    operator std::vector<TimeStep>() const;
+    operator std::vector<BoundaryConditionsStamped>() const;
 
     //! std::vector-like at(i) getter
-    TimeStep at(std::size_t pos) const;
+    BoundaryConditionsStamped at(std::size_t pos) const;
 
     //! Get size (number of grid points).
     arma::uword size() const { return m_timestamps.n_rows; }

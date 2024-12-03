@@ -11,7 +11,7 @@ class BatchTracking;
 class Pipeline;
 class GoverningEquationSolverBase;
 class BoundaryConditions;
-class TimeStep;
+class BoundaryConditionsStamped;
 
 /*!
  * \brief The Solver class combines GoverningEquationSolver and BatchTracking
@@ -70,10 +70,10 @@ public:
      * \return Copy of current with updated properties.
      */
     virtual Pipeline solve(
-            const arma::uword dt,
-            const Pipeline& current,
-            const TimeStep& boundaryConditions,
-            const Physics& physics) const;
+        const arma::uword dt,
+        const Pipeline &current,
+        const BoundaryConditionsStamped &boundaryConditions,
+        const Physics &physics) const;
 
     /*!
      * \brief Solve the governing equations.

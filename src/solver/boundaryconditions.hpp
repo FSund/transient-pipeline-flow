@@ -299,10 +299,10 @@ private:
 };
 
 /*!
- * \brief The TimeStep class is a subclass of BoundaryConditions with an extra
+ * \brief The BoundaryConditionsStamped class is a subclass of BoundaryConditions with an extra
  * member to store the timestamp of the boundary conditions.
  */
-class TimeStep : public BoundaryConditions
+class BoundaryConditionsStamped : public BoundaryConditions
 {
 public:
     /*!
@@ -310,11 +310,10 @@ public:
      * \param timestamp Timestamp [s]
      * \param boundaryConditions BoundaryConditions instance
      */
-    TimeStep(
-            const arma::uword timestamp,
-            const BoundaryConditions& boundaryConditions):
-        BoundaryConditions(boundaryConditions),
-        m_timestamp(timestamp)
+    BoundaryConditionsStamped(
+        const arma::uword timestamp,
+        const BoundaryConditions &boundaryConditions) : BoundaryConditions(boundaryConditions),
+                                                        m_timestamp(timestamp)
     {}
 
     //! Get (copy of) timestamp

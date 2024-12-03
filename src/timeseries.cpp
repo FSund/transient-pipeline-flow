@@ -264,7 +264,7 @@ void TimeSeries::save(const std::string& filename)
     data.save(filename, arma::csv_ascii);
 }
 
-TimeStep TimeSeries::at(std::size_t i) const
+BoundaryConditionsStamped TimeSeries::at(std::size_t i) const
 {
     BoundaryConditions bc(
         SingleCondition(m_inletFlow(i), m_inletFlow.isActive()),
@@ -277,13 +277,13 @@ TimeStep TimeSeries::at(std::size_t i) const
         m_outletComposition.at(i)
     );
 
-    return TimeStep(m_timestamps(i), bc);
+    return BoundaryConditionsStamped(m_timestamps(i), bc);
 }
 
-TimeSeries::operator std::vector<TimeStep>() const
+TimeSeries::operator std::vector<BoundaryConditionsStamped>() const
 {
     // user-defined conversion
-    std::vector<TimeStep> timeSteps;
+    std::vector<BoundaryConditionsStamped> timeSteps;
     for (std::size_t i = 0; i < this->size(); i++)
     {
         timeSteps.push_back(this->at(i));

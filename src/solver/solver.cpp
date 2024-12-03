@@ -49,10 +49,10 @@ Solver::Solver(const arma::uword nGridPoints, const Config& config):
 {}
 
 Pipeline Solver::solve(
-        const arma::uword dt,
-        const Pipeline& current,
-        const TimeStep& boundaryConditions,
-        const Physics& physics) const
+    const arma::uword dt,
+    const Pipeline &current,
+    const BoundaryConditionsStamped &boundaryConditions,
+    const Physics &physics) const
 {
     return solve(dt, current, BoundaryConditions(boundaryConditions), physics);
 }
