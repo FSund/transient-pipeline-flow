@@ -9,10 +9,14 @@
             "extensions": [
                 "ms-vscode.cmake-tools",
                 "ms-vscode.cpptools",
-                "ms-vscode.cpptools-extension-pack"
+                "ms-vscode.cpptools-extension-pack",
+                "ms-python.python",
+                "ms-azuretools.vscode-docker"
             ]
         }
     },
+
+    // default user "vscode" has issues with file permissions when using rootless docker
     "remoteUser": "root",
     "containerUser": "root"
 }
