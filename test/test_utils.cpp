@@ -65,10 +65,9 @@ TEST_CASE("numerics")
 {
     SUBCASE("arma solve")
     {
-        arma::mat A;
-        A << 1 << 3 << -2 << arma::endr
-          << 3 << 5 << 6 << arma::endr
-          << 2 << 4 << 3;
+        arma::mat A = {{1, 3,-2},
+                       {3, 5, 6},
+                       {2, 4, 3}};
 
         arma::vec b{5, 7, 8};
 
@@ -87,10 +86,9 @@ TEST_CASE("numerics")
 
         arma::vec x1 = utils::tridag(a, b, c, r, a.n_elem);
 
-        arma::mat A;
-        A << b(0) << c(0) << 0    << arma::endr
-          << a(1) << b(1) << c(1) << arma::endr
-          << 0    << a(2) << b(2);
+        arma::mat A = {{b(0), c(0), 0   },
+                       {a(1), b(1), c(1)},
+                       {0   , a(2), b(2)}};
 
         arma::vec x2 = arma::solve(A, r);
 

@@ -19,11 +19,9 @@ TEST_CASE("MatrixEquation::fillMatrixAndVector")
     uword nEquationsAndVariables = 3;
     cube term_i = zeros<cube>(nGridPoints, nEquations, nVariables);
     cube term_ipp = zeros<cube>(nGridPoints, nEquations, nVariables);
-    mat boundaryConditions;
-    boundaryConditions
-            << 1.0 << 1.0 << endr
-            << 1.0 << 1.0 << endr
-            << 1.0 << 1.0;
+    mat boundaryConditions = {{1.0, 1.0},
+                              {1.0, 1.0},
+                              {1.0, 1.0}};
     BoundaryConditions bc(boundaryConditions);
     bc.setBoundarySettings({"inlet", "outlet", "inlet"});
 

@@ -85,11 +85,10 @@ TEST_CASE("thermal resistance calculation")
         const PipeWall wall = PipeWall::defaultPipeWall;
         SteadyStateHeatTransfer heat(dia, wall, burial, BurialMedium::soil, fluid);
 
-        vec r;
-        r << dia/2.0
-          << dia/2.0 + wall.layer(0).thickness()
-          << dia/2.0 + wall.layer(0).thickness() + wall.layer(1).thickness()
-          << dia/2.0 + wall.layer(0).thickness() + wall.layer(1).thickness() + wall.layer(2).thickness();
+        vec r = {dia/2.0,
+                 dia/2.0 + wall.layer(0).thickness(),
+                 dia/2.0 + wall.layer(0).thickness() + wall.layer(1).thickness(),
+                 dia/2.0 + wall.layer(0).thickness() + wall.layer(1).thickness() + wall.layer(2).thickness()};
 
         vec lam = {
             wall.layer(0).conductivity(),

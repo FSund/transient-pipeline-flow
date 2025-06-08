@@ -63,12 +63,11 @@ TEST_CASE("Long time")
 
     const vec velocity = {1,1,1,1,1,1,1,1,1};
 
-    mat compBC;
-    compBC << 0.5 << 0.5;
+    mat compBC = {{0.5, 0.5}};
 
     state = BatchTracking::advect(state, 60, compBC, velocity);
 
-    compBC << 1.0 << 1.0;
+    compBC = {{1.0, 1.0}};
     state = BatchTracking::advect(state, 60, compBC, velocity);
 
     state = BatchTracking::advect(state, 1000, compBC, velocity);
@@ -92,8 +91,7 @@ TEST_CASE("Exact time")
 
     const vec velocity = arma::zeros<vec>(nGridPoints - 1) + 1;
 
-    mat compBC;
-    compBC << 0.5 << 0.5;
+    mat compBC = {{0.5, 0.5}};
 
     state = BatchTracking::advect(state, 10.0, compBC, velocity);
     auto out = state.sampleToVec();
@@ -101,7 +99,7 @@ TEST_CASE("Exact time")
     CHECK(out.at(1)(0) == 1.0);
     CHECK(out.at(2)(0) == 1.0);
 
-    compBC << 1.0 << 0.5;
+    compBC = {{1.0, 0.5}};
     state = BatchTracking::advect(state, 10.0, compBC, velocity);
     out = state.sampleToVec();
     CHECK(out.at(0)(0) == 1.0);
@@ -148,8 +146,7 @@ TEST_CASE("gridpoints start at != 0")
 
     const vec velocity = arma::zeros<vec>(nGridPoints - 1) + 2;
 
-    mat compBC;
-    compBC << 2 << 2;
+    mat compBC = {{2, 2}};
 
     state = BatchTracking::advect(state, 5.0, compBC, velocity);
     auto out = state.sampleToVec();
@@ -176,8 +173,7 @@ TEST_CASE("zero velocity at inlet")
 
     const vec velocity = arma::zeros<vec>(nGridPoints - 1);
 
-    mat compBC;
-    compBC << 2 << 2;
+    mat compBC = {{2, 2}};
 
     state = BatchTracking::advect(state, 5.0, compBC, velocity);
     vector<vec> out = state.sampleToVec();
